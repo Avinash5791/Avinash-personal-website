@@ -16,6 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <meta charset="UTF-8" />
     
     <meta name="keywords" content="Recognize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -475,7 +476,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <h3 class="tittle-w3 text-uppercase mb-lg-5 mb-3 text-center text-white">Contact Me Now</h3>
 
                 <div class="contact_grid_right">
-                    <form action="#" method="post">
+                    <form id="submit-form" action="">
                         <div class="row contact_left_grid">
                             <div class="col-md-6 con-left" data-aos="fade-up">
                                 <div class="form-group">
@@ -840,6 +841,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <script src="js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/a88f23d8bc.js" crossorigin="anonymous"></script>
+
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbypHq1iSatK-T9alglrlXWp7s8d-iyOnN98p4WLOczZS4YT6QM1pXgzOmhdPOhVXpbl/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 
 </body>
 
